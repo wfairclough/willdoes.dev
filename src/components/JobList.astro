@@ -1,0 +1,17 @@
+---
+import JobListing from "./JobListing.astro";
+
+const jobs = await Astro.glob('../content/jobs/*.md');
+---
+
+<ul>
+	{
+		jobs.map((job) => {
+			return (
+				<li>
+					<JobListing job={job} />
+				</li>
+			);
+		})
+	}
+</ul>

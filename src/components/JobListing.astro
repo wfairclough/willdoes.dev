@@ -1,0 +1,13 @@
+---
+const { job } = Astro.props;
+console.log(job.frontmatter)
+---
+
+<div class="job-listing">
+	<h1>
+		{ job.frontmatter.company }
+	</h1>
+	<p>
+		<job.default />
+	</p>
+</div>
