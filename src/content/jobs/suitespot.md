@@ -1,6 +1,6 @@
 ---
 company: SuiteSpot Technology Inc.
-role: Lead Senior Software Developer
+role: Lead Software Developer Platform Team
 startDate: 2017-11-21
 endDate: null
 tech:
@@ -20,18 +20,26 @@ tech:
   - RabbitMQ
 ---
 
-# Job Description
+Early Team Member & SAAS Platform Architect
+Aided in the inception of the company and spearheaded the development of a SAAS platform assisting Property Managers in daily operations.
 
-Started the role when the company was formed and built from the ground up a SAAS platform to help Property Managers with their day to day operational tasks.
+## Responsibilities and Achievements
 
-- Architeced a SAAS solution using Node.js, TypeScript and Angular
-- Configured CI/CD on CircleCI to fully build and e2e test all the APIs and Web Applications:
-  - Run automated e2e tests written in Protractor/Playwright and provide reports and screenshots on failures
-- Leveraged Ionic and Capacitor web technologies to build native iOS and Android applications for the AppStore
-- Built multiple Capacitor native plugins:
-  - Camera plugin to add custom controls that allowed our users to more rapidly take photos
-  - Background task plugin to perform import data uploads before the app closes
-- Developed the Authentication service to allow Users and API Integrations to access multiple tenants 
-- Started new component library using Lit and web components to provide the developers with a consistent way to develop using the SuiteSpot design system
-- Integrated lagacy third-party Property Management systems using a combination of SOAP APIs, ETL files and SFTP backed by S3 Bucket
-
+- Designed a robust SAAS solution utilizing Node.js, RabbitMQ, MongoDB, TypeScript, and Angular.
+- Engineered an authentication service, facilitating user and API tokens across multiple tenants.
+  - TOTP support to allow MFA using Authenticator Apps.
+  - SAML support to provide SSO.
+  - SCIM support for user syncing to the platform.
+- Crafted native iOS and Android applications using Ionic and Capacitor for AppStore deployment.
+- Developed multiple Capacitor native plugins, including:
+  - A camera plugin for enhanced photo-taking efficiency.
+  - A background task plugin ensuring data uploads prior to app closure.
+- Set up CI/CD on CircleCI, ensuring end-to-end testing of APIs and web apps:
+  - Executed automated headless e2e tests with Protractor/Playwright, providing detailed reports and failure screenshots.
+  - Containerized services using Docker to deploy to AWS and local clusters for testing.
+- Initiated a component library with Lit and web components, aligning with the SuiteSpot design system.
+- Seamlessly integrated legacy third-party Property Management systems through SOAP APIs, ETL files, and SFTP, supported by an S3 Bucket and Lambda functions.
+- Provide cli tools, and small web apps to excellerate development team with their tasks
+  - Rust CLI to inject cloud secrets into their environment if their AWS credentials allow it
+  - Backend web tools to inspect and on-board customer data
+  - Configure attributes/metrics and our logging infrastrucutre to more easily track down issues in the system

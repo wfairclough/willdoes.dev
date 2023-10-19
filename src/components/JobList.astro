@@ -1,17 +1,34 @@
 ---
 import JobListing from "./JobListing.astro";
 
-const jobs = await Astro.glob('../content/jobs/*.md');
+const jobsRaw = await Astro.glob('../content/jobs/*.md');
+const jobs = jobsRaw.sort((a: any, b: any) => {
+	const bd = new Date(b.frontmatter?.startDate).getTime();
+	const ad = new Date(a.frontmatter?.startDate).getTime(); 
+	return bd - ad;
+});
+console.log({ jobs });
 ---
 
+
 <ul>
-	{
-		jobs.map((job) => {
-			return (
-				<li>
-					<JobListing job={job} />
-				</li>
-			);
-		})
-	}
+{
+	jobs.map((job) => {
+		return (
+			<li>
+				<JobListing job={job} />
+			</li>
+		);
+	})
+}
 </ul>
+
+
+<style>
+ ul {
+	 list-style: none;
+	 padding: 0;
+	 margin: 0;
+	 color: white;
+ }
+</style>

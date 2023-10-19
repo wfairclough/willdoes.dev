@@ -3,11 +3,37 @@ const { job } = Astro.props;
 console.log(job.frontmatter)
 ---
 
-<div class="job-listing">
-	<h1>
-		{ job.frontmatter.company }
+<section class="job-listing">
+	<h1 class="company">
+		<strong>{ job.frontmatter.company }</strong>
+		{ job.frontmatter.role }
 	</h1>
-	<p>
+
+	<div class="job">
 		<job.default />
-	</p>
-</div>
+	</div>
+</section>
+
+<style>
+	.company {
+		& strong {
+			display: block;
+			font-size: 4rem;
+		}
+		font-weight: 200;
+		font-size: 2rem;
+	}
+	/* .job,
+	.job-listing {
+		color: white;
+		& h1,
+		& h2,
+		& h3 {
+			color: inherit;
+		}
+	}
+
+	.job h2 {
+		color: white;
+	} */
+</style>
