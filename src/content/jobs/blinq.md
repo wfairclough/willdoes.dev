@@ -13,7 +13,7 @@ tech:
   - MySQL
 ---
 
-## Responsibilities and Achievements:
+### Responsibilities and Achievements:
 
 - Engaged in multiple projects using agile methodologies.
 - Developed event-driven, multi-threaded software applications.
@@ -22,17 +22,17 @@ tech:
 - Managed VMWare ESX virtual machines.
 - Established an automated build server using Jenkins CI, integrated with Perforce SCM systems.
 
-### WebUI Development:
+#### WebUI Development:
 
 - Designed UI mockups and developed a GWT front-end, integrating with the ConfD JavaScript API for node configuration.
 - Processed XML data for wireless node performance.
 
-### Node Management and Pre-Deployment:
+#### Node Management and Pre-Deployment:
 
 - Developed Java web applications on JBoss server using Enterprise JavaBeans for managing and optimizing BLiNQ wireless nodes.
 - Facilitated communication between MATLAB and Java applications using SOAP Web Services in line with J2EE standards.
 - Designed database schema with MySQL Workbench and used JMS for inter-application communication.
 
-### Digital Attenuator Controller:
+#### Digital Attenuator Controller:
 
 - Utilized Raspberry Pi GPIO ports to control a proprietary Digital Attenuator Circuit Board using a C++ application.

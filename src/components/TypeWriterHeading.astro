@@ -1,0 +1,107 @@
+---
+const { id, text, heading, typingDelay, ariaHidden } = Astro.props;
+
+const Heading = `h${heading ?? 3}` as any;
+---
+
+<wf-heading id={id} data-text={text} data-delay={typingDelay}>
+  <Heading class="heading | cli-text" aria-hidden={ariaHidden ?? false}>{text}</Heading>
+</wf-heading>
+
+<script>
+  class WfHeading extends HTMLElement {
+    headingEl: HTMLElement;
+    observer: IntersectionObserver;
+    constructor() {
+      super();
+
+      // Read the message from the data attribute.
+      const delay = parseInt(this.dataset.delay ?? '100', 10);
+      this.headingEl = this.querySelector('.heading')!;
+      // Use an intersect observer to toggle the typewriter class when visible
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              this.toggleTypewriter();
+              this.observer.unobserve(this);
+            }, delay);
+          }
+        });
+      });
+
+      this.observer.observe(this);
+    }
+
+    disconnectedCallback() {
+      this.observer.disconnect();
+    }
+
+    toggleTypewriter() {
+      this.headingEl.classList.toggle("typewriter");
+
+      setTimeout(() => {
+        this.dispatchEvent(new CustomEvent('startTypewrite', {
+          bubbles: true,
+          composed: true,
+        }));
+      }, 1200);
+    }
+  }
+
+  customElements.define('wf-heading', WfHeading);
+</script>
+
+
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    opacity: 0;
+
+    &.typewriter {
+      opacity: 1;
+    }
+  }
+
+  .typewriter {
+    align-self: flex-start;
+    color: white;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 1rem solid transparent; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    max-width: fit-content;
+    margin: 0; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; */
+    animation:
+      typing 2s steps(35, end),
+      blink-caret 0.75s step-end 5;
+
+    &.nocursor {
+      border-right: none;
+    }
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: white;
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
+</style>

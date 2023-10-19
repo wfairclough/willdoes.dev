@@ -1,0 +1,51 @@
+---
+import Folder from '../icons/Folder.astro';
+import FileCode from '../icons/FileCode.astro';
+import Stack from '../icons/Stack.astro';
+import At from '../icons/At.astro';
+import NavLink from './NavLink.astro';
+import TypeWriterHeading from './TypeWriterHeading.astro';
+const { pages } = Astro.props;
+---
+
+<nav class="dir" aria-label="Main navigation">
+  <TypeWriterHeading id="nav-heading" text="ls -lah ./navigation" ariaHidden={true} />
+  <wf-on-visible style="opacity: 0;" data-animation="slide-from-start-fade-in" data-animation-delay="300" class="initially-hidden">
+    <ul role="list">
+      <li>
+        <NavLink icon={Folder} text="Experience" bytes="96B" to="#experience" />
+      </li>
+      <li>
+        <NavLink icon={FileCode} text="Projects" bytes="112B" to="//github.com/wfairclough" />
+      </li>
+      <li>
+        <NavLink icon={Stack} text="Stack" bytes="45B" to="#stack" />
+      </li>
+      <li>
+        <NavLink icon={At} text="Contact" bytes="32B" to="#contact" />
+      </li>
+    </ul>
+  </wf-on-visible>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  li {
+    list-style: none;
+  }
+  li > a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+</style>

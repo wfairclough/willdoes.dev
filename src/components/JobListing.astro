@@ -3,37 +3,28 @@ const { job } = Astro.props;
 console.log(job.frontmatter)
 ---
 
-<section class="job-listing">
-	<h1 class="company">
-		<strong>{ job.frontmatter.company }</strong>
-		{ job.frontmatter.role }
-	</h1>
 
-	<div class="job">
-		<job.default />
-	</div>
+<section class="job-listing">
+	<wf-on-visible style="opacity: 0;" data-animation="slide-from-start-fade-in" data-animation-delay="300" class="initially-hidden initially-off-end">
+		<h4 class="company">
+			<strong>{ job.frontmatter.company }</strong>
+			<div>
+				{ job.frontmatter.role }
+			</div>
+		</h4>
+		
+		<div class="job">
+			<job.default />
+		</div>
+	</wf-on-visible>
 </section>
 
 <style>
 	.company {
-		& strong {
-			display: block;
-			font-size: 4rem;
-		}
 		font-weight: 200;
-		font-size: 2rem;
 	}
-	/* .job,
 	.job-listing {
-		color: white;
-		& h1,
-		& h2,
-		& h3 {
-			color: inherit;
-		}
+		padding-block-start: 2rem;
 	}
 
-	.job h2 {
-		color: white;
-	} */
 </style>

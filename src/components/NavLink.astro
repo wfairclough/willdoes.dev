@@ -1,0 +1,35 @@
+---
+import Folder from "../icons/Folder.astro";
+const { text, bytes, permissions, icon: Ico, to } = Astro.props;
+
+const href = to ?? '#';
+const Icon = Ico ?? Folder
+---
+
+
+<a href={href} class="icon">
+  <span>{permissions ?? 'drwxr-xr-x'}</span>
+  <span>will staff</span>
+  <span class="bytes">{bytes}</span>
+  <Icon class="test" />
+  <span class="name">{text}</span>
+</a>
+
+<style>
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+
+    &:hover .name {
+      text-decoration: underline;
+      font-weight: var(--wf-font-weight-bold);
+    }
+
+    & .bytes {
+      width: 3rem;
+    }
+
+  }
+</style>

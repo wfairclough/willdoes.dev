@@ -23,7 +23,7 @@ tech:
 Early Team Member & SAAS Platform Architect
 Aided in the inception of the company and spearheaded the development of a SAAS platform assisting Property Managers in daily operations.
 
-## Responsibilities and Achievements
+#### Responsibilities and Achievements
 
 - Designed a robust SAAS solution utilizing Node.js, RabbitMQ, MongoDB, TypeScript, and Angular.
 - Engineered an authentication service, facilitating user and API tokens across multiple tenants.

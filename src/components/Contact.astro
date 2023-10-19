@@ -1,0 +1,28 @@
+---
+import ContactField from "./ContactField.astro";
+---
+
+<section id="contact" class="contact">
+  <h3>Contact</h3>
+
+  <div class="wrapper">
+    <ContactField label="Email" value="wfairclough@gmail.com" to="mailto:wfairclough@gmail.com?subject=👋 Hello" />
+    <ContactField label="GitHub" value="@wfairclough" to="//github.com/wfairclough" />
+    <ContactField label="X formerly Twitter" value="@willdoesdev" to="//x.com/willdoesdev" />
+    <ContactField label="LinkedIn" value="Will Fairclough" to="//www.linkedin.com/in/william-fairclough-466b0324" />
+  </div>
+
+</section>
+
+<style>
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+  }
+</style>
