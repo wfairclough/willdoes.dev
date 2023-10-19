@@ -1,11 +1,12 @@
 ---
+import OnVisibleAnimation from "./OnVisibleAnimation.astro";
 const { job } = Astro.props;
 console.log(job.frontmatter)
 ---
 
 
 <section class="job-listing">
-	<wf-on-visible style="opacity: 0;" data-animation="slide-from-start-fade-in" data-animation-delay="300" class="initially-hidden initially-off-end">
+	<OnVisibleAnimation animation="slide-from-state-fade-in" delay="200">
 		<h4 class="company">
 			<strong>{ job.frontmatter.company }</strong>
 			<div>
@@ -16,7 +17,7 @@ console.log(job.frontmatter)
 		<div class="job">
 			<job.default />
 		</div>
-	</wf-on-visible>
+	</OnVisibleAnimation>
 </section>
 
 <style>

@@ -5,12 +5,13 @@ import Stack from '../icons/Stack.astro';
 import At from '../icons/At.astro';
 import NavLink from './NavLink.astro';
 import TypeWriterHeading from './TypeWriterHeading.astro';
+import OnVisibleAnimation from './OnVisibleAnimation.astro';
 const { pages } = Astro.props;
 ---
 
 <nav class="dir" aria-label="Main navigation">
   <TypeWriterHeading id="nav-heading" text="ls -lah ./navigation" ariaHidden={true} />
-  <wf-on-visible style="opacity: 0;" data-animation="slide-from-start-fade-in" data-animation-delay="300" class="initially-hidden">
+	<OnVisibleAnimation animation="slide-from-state-fade-in" delay="200">
     <ul role="list">
       <li>
         <NavLink icon={Folder} text="Experience" bytes="96B" to="#experience" />
@@ -25,7 +26,7 @@ const { pages } = Astro.props;
         <NavLink icon={At} text="Contact" bytes="32B" to="#contact" />
       </li>
     </ul>
-  </wf-on-visible>
+  </OnVisibleAnimation>
 </nav>
 
 <style>
