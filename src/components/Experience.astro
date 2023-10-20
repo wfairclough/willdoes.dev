@@ -3,8 +3,9 @@ import JobList from "./JobList.astro";
 import TypeWriterHeading from "./TypeWriterHeading.astro";
 ---
 
-<section id="experience" class="exp">
-  <TypeWriterHeading text="cat ./experience.md" />
+<section id="experience" class="exp mobile-hidden">
+  <TypeWriterHeading id="exp-heading" text="cat ./experience.md" ariaHidden={true} />
+  <label for="exp-heading" class="sr-only">Contact</label>
 
   <JobList />
 </section>

@@ -6,7 +6,7 @@ startDate: 2010-09-01
 endDate: 2012-03-15
 ---
 
-## Responsibilities and Achievements:
+#### Responsibilities and Achievements:
 
 - Engineered applications using Java and Python tailored for optical network planning tools.
 - Collaborated with a team of developers on a unified project, utilizing tools for issue tracking and version control.

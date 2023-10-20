@@ -6,24 +6,30 @@ import At from '../icons/At.astro';
 import NavLink from './NavLink.astro';
 import TypeWriterHeading from './TypeWriterHeading.astro';
 import OnVisibleAnimation from './OnVisibleAnimation.astro';
+import Files from '../icons/Files.astro';
 const { pages } = Astro.props;
 ---
 
 <nav class="dir" aria-label="Main navigation">
   <TypeWriterHeading id="nav-heading" text="ls -lah ./navigation" ariaHidden={true} />
+  <label for="nav-heading" class="sr-only">Contact</label>
+
 	<OnVisibleAnimation animation="slide-from-start-fade-in" delay="200">
     <ul role="list">
-      <li>
-        <NavLink icon={Folder} text="Experience" bytes="96B" to="#experience" />
+      <li class="mobile-hidden">
+        <NavLink id="exp-link" icon={Folder} text="Experience" bytes="96B" to="#experience" />
       </li>
       <li>
-        <NavLink icon={FileCode} text="Projects" bytes="112B" to="//github.com/wfairclough" />
+        <NavLink id="resume-link" . icon={Files} text="Resume" bytes="8K" to="//resume.wfairclough.com" target="_blank" />
       </li>
       <li>
-        <NavLink icon={Stack} text="Stack" bytes="45B" to="#stack" />
+        <NavLink id="github-link" icon={FileCode} text="Projects" bytes="112B" to="//github.com/wfairclough" target="_blank" />
       </li>
       <li>
-        <NavLink icon={At} text="Contact" bytes="32B" to="#contact" />
+        <NavLink id="stack-link" icon={Stack} text="Stack" bytes="45B" to="#stack" />
+      </li>
+      <li>
+        <NavLink id="contact-link" icon={At} text="Contact" bytes="32B" to="#contact" />
       </li>
     </ul>
   </OnVisibleAnimation>

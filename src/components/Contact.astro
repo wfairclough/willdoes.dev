@@ -1,15 +1,17 @@
 ---
 import ContactField from "./ContactField.astro";
+import TypeWriterHeading from "./TypeWriterHeading.astro";
 ---
 
 <section id="contact" class="contact">
-  <h3>Contact</h3>
+  <TypeWriterHeading id="contact-heading" text="bash ./get-contact-info.sh" typingDelay={100} ariaHidden={true} />
+  <label for="contact-heading" class="sr-only">Contact</label>
 
   <div class="wrapper">
-    <ContactField label="Email" value="wfairclough@gmail.com" to="mailto:wfairclough@gmail.com?subject=👋 Hello" />
-    <ContactField label="GitHub" value="@wfairclough" to="//github.com/wfairclough" />
-    <ContactField label="X formerly Twitter" value="@willdoesdev" to="//x.com/willdoesdev" />
-    <ContactField label="LinkedIn" value="Will Fairclough" to="//www.linkedin.com/in/william-fairclough-466b0324" />
+    <ContactField id="email" label="Email" value="wfairclough@gmail.com" to="mailto:wfairclough@gmail.com?subject=👋 Hello" />
+    <ContactField id="git_hub" label="GitHub" value="@wfairclough" to="//github.com/wfairclough" />
+    <ContactField id="x_formerly_twitter" label="X formerly Twitter" value="@willdoesdev" to="//x.com/willdoesdev" />
+    <ContactField id="linked_in" label="LinkedIn" value="Will Fairclough" to="//www.linkedin.com/in/william-fairclough-466b0324" />
   </div>
 
 </section>

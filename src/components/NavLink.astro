@@ -1,19 +1,20 @@
 ---
 import Folder from "../icons/Folder.astro";
-const { text, bytes, permissions, icon: Ico, to } = Astro.props;
+const { id, text, bytes, permissions, icon: Ico, to, target } = Astro.props;
 
 const href = to ?? '#';
 const Icon = Ico ?? Folder
 ---
 
 
-<a href={href} class="icon">
+<a aria-labelledby={id} href={href} class="icon" target={target}>
   <span>{permissions ?? 'drwxr-xr-x'}</span>
-  <span>will staff</span>
+  <span class="chown mobile-hidden">will staff</span>
   <span class="bytes">{bytes}</span>
-  <Icon class="test" />
+  <Icon />
   <span class="name">{text}</span>
 </a>
+<label id={id} class="sr-only">Go to "{text}"</label>
 
 <style>
   a {
@@ -22,14 +23,35 @@ const Icon = Ico ?? Folder
     gap: 1rem;
     text-decoration: none;
 
+    &:focus-visible .name,
     &:hover .name {
       text-decoration: underline;
       font-weight: var(--wf-font-weight-bold);
+      color: var(--wf-tertiary-color);
     }
 
     & .bytes {
       width: 3rem;
+      text-align: end;
+    }
+    &[target="_blank"]:focus-visible,
+    &[target="_blank"]:hover {
+      & .name::after {
+        content: url('/icons/external-link_dm.svg');
+        margin-inline-start: 0.25rem;
+      }
     }
 
+  }
+
+  @media (prefers-color-scheme: light) {
+    a {
+      &[target="_blank"]:focus-visible,
+      &[target="_blank"]:hover {
+        & .name::after {
+          content: url('/icons/external-link_lm.svg');
+        }
+      }
+    }
   }
 </style>

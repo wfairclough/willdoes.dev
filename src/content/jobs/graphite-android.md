@@ -11,7 +11,7 @@ tech:
   - AOSP
 ---
 
-## Responsibilities and Achievements:
+#### Responsibilities and Achievements:
 
 - Developed components of Secure Spaces using Java and Kotlin, including features within Android's Application Framework layer.
 - Led full-stack projects encompassing REST application server, API, and Android client.

@@ -13,7 +13,7 @@ tech:
   - GCP
 ---
 
-## Responsibilities and Achievements:
+#### Responsibilities and Achievements:
 
 - Full-stack development encompassing database, server, web client, and Android client.
 - Developed solutions using the Typesafe Reactive Platform, including Scala, Play Framework, and Akka.
