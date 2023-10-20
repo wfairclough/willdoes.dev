@@ -7,14 +7,13 @@ const Icon = Ico ?? Folder
 ---
 
 
-<a aria-labelledby={id} href={href} class="icon" target={target}>
-  <span>{permissions ?? 'drwxr-xr-x'}</span>
-  <span class="chown mobile-hidden">will staff</span>
-  <span class="bytes">{bytes}</span>
+<a href={href} class="icon" target={target}>
+  <span aria-hidden>{permissions ?? 'drwxr-xr-x'}</span>
+  <span aria-hidden class="chown mobile-hidden">will staff</span>
+  <span aria-hidden class="bytes">{bytes}</span>
   <Icon />
   <span class="name">{text}</span>
 </a>
-<label id={id} class="sr-only">Go to "{text}"</label>
 
 <style>
   a {
@@ -52,6 +51,12 @@ const Icon = Ico ?? Folder
           content: url('/icons/external-link_lm.svg');
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    a {
+      padding: 0.5rem 0;
     }
   }
 </style>

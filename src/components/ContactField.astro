@@ -5,8 +5,7 @@ const { id, label, to, value } = Astro.props;
 <div class="contact-field">
   <span class="label">{label}</span>
   <div class="sep"></div>
-  <a aria-labelledby={id} href={to}>{value}</a>
-  <label id={id} class="sr-only">Contact by {label} - {value}</label>
+  <a href={to}>{value}</a>
 </div>
 
 <style>
