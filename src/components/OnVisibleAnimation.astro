@@ -2,7 +2,7 @@
 const { animation, delay } = Astro.props;
 ---
 
-<wf-on-visible style="opacity: 0;" data-animation={animation} data-animation-delay={delay} class="initially-hidden initially-off-end">
+<wf-on-visible style="opacity: 0;" data-animation={animation} data-animation-delay={delay} class="initially-hidden initially-off-start">
   <slot />
 </wf-on-visible>
 
@@ -15,7 +15,6 @@ class WfOnVisible extends HTMLElement {
 
   constructor() {
     super();
-
     this._handleIntersection = this._handleIntersection.bind(this);
 
     this.animationClass = this.dataset.animation;
@@ -26,7 +25,7 @@ class WfOnVisible extends HTMLElement {
 
   connectedCallback() {
     this._observer = new IntersectionObserver(this._handleIntersection, {
-      threshold: 0.025,
+      // threshold: 0.025,
     });
     this._observer.observe(this);
   }
@@ -61,10 +60,74 @@ customElements.define('wf-on-visible', WfOnVisible);
   .is-visible {
     opacity: 1;
   }
-  .initially-off-end {
-    transform: translateX(100%);
+  /* .initially-off-end {
+    transform: translateX(100vw);
   }
   .initially-off-start {
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
+  } */
+
+
+  .fade-in {
+  	animation: fadeIn 0.7s ease-in-out;
   }
+
+  @keyframes fadeIn {
+  	from {
+  		opacity: 0;
+  	}
+  	to {
+  		opacity: 1;
+  	}
+  }
+
+  .slide-from-end {
+  	animation: slideFromEnd 0.7s ease-in-out;
+  }
+
+  @keyframes slideFromEnd {
+  	from {
+  		transform: translateX(100%);
+  	}
+  	to {
+  		transform: translateX(0);
+  	}
+  }
+
+  .slide-from-end-fade-in {
+  	animation: slideFromEndFadeIn 0.7s ease-in-out;
+  }
+
+  @keyframes slideFromEndFadeIn {
+  	from {
+  		transform: translateX(100%);
+  		opacity: 0;
+  	}
+  	50% {
+  		opacity: 0;
+  	}
+  	to {
+  		transform: translateX(0);
+  		opacity: 1;
+  	}
+  }
+
+  .slide-from-start-fade-in {
+  	animation: slideFromStartFadeIn 0.7s ease-in-out;
+  }
+
+  @keyframes slideFromStartFadeIn {
+  	from {
+  		transform: translateX(-100%);
+  		opacity: 0;
+  	}
+  	50% {
+  		opacity: 0;
+  	}
+  	to {
+  		transform: translateX(0);
+  		opacity: 1;
+  	}
+  }
+
 </style>
