@@ -11,7 +11,7 @@ const { id, label, to, value } = Astro.props;
 <style>
   .contact-field {
     display: grid;
-    grid-template-columns: min-content auto min-content;
+    grid-template-columns: min-content minmax(0px, auto) min-content;
     font-weight: 100;
     color: var(--wf-text-color-light);
     white-space: nowrap;

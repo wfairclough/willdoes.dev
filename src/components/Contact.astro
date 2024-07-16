@@ -1,5 +1,6 @@
 ---
 import ContactField from "./ContactField.astro";
+import OnVisibleAnimation from "./OnVisibleAnimation.astro";
 import TypeWriterHeading from "./TypeWriterHeading.astro";
 ---
 
@@ -7,12 +8,14 @@ import TypeWriterHeading from "./TypeWriterHeading.astro";
   <TypeWriterHeading id="contact-heading" text="bash ./get-contact-info.sh" typingDelay={100} ariaHidden={true} />
   <label for="contact-heading" class="sr-only">Contact</label>
 
-  <div class="wrapper">
-    <ContactField id="email_contact" label="Email" value="wfairclough@gmail.com" to="mailto:wfairclough@gmail.com?subject=👋 Hello" />
-    <ContactField id="github_contact" label="GitHub" value="@wfairclough" to="//github.com/wfairclough" />
-    <ContactField id="x_formerly_twitter_contact" label="X formerly Twitter" value="@willdoesdev" to="//x.com/willdoesdev" />
-    <ContactField id="linked_in_contact" label="LinkedIn" value="Will Fairclough" to="//www.linkedin.com/in/william-fairclough-466b0324" />
-  </div>
+	<OnVisibleAnimation animation="slide-from-start-fade-in" delay="200">
+    <div class="wrapper">
+      <ContactField id="email_contact" label="Email" value="wfairclough@gmail.com" to="mailto:wfairclough@gmail.com?subject=👋 Hello" />
+      <ContactField id="github_contact" label="GitHub" value="@wfairclough" to="//github.com/wfairclough" />
+      <ContactField id="x_formerly_twitter_contact" label="X formerly Twitter" value="@willdoesdev" to="//x.com/willdoesdev" />
+      <ContactField id="linked_in_contact" label="LinkedIn" value="Will Fairclough" to="//www.linkedin.com/in/william-fairclough-466b0324" />
+    </div>
+  </OnVisibleAnimation>
 
 </section>
 
@@ -26,5 +29,17 @@ import TypeWriterHeading from "./TypeWriterHeading.astro";
     flex-direction: column;
     gap: 1rem;
     font-size: 1rem;
+  }
+
+  #contact {
+    container-name: contact;
+    container-type: inline-size;
+  }
+
+  @container contact (width < 620px) {
+    .wrapper {
+      font-size: clamp(0.6rem, 4vw, 1rem);
+      padding-inline: 1.5rem;
+    }
   }
 </style>
