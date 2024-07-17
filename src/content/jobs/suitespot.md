@@ -20,8 +20,7 @@ tech:
   - RabbitMQ
 ---
 
-Early Team Member & SAAS Platform Architect
-Aided in the inception of the company and spearheaded the development of a SAAS platform assisting Property Managers in daily operations.
+I lead a team of talented developers in designing and developing SaaS applications. I utilize my proficiency in Web Technologies such as TypeScript, Angular, Ionic, and Node.js to spearhead the creation of resilient solutions like authentication services, scalable full-text search, and analytics APIs/Dashboards. These advancements enable clients to swiftly make informed decisions regarding their property management processes.
 
 #### Responsibilities and Achievements
 
